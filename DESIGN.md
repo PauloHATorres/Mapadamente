@@ -10,7 +10,7 @@ A nova identidade do Mapadamente é um **arquivo cultural e intelectual sobre a 
 - Source Serif 4 para voz editorial; Inter para navegação, metadados e interface.
 - Linhas finas e ritmos de publicação impressa.
 - Conteúdo e imagens reais antes de decoração.
-- O acervo antigo aparece como fac-símile/material histórico, não como ruído nostálgico.
+- O acervo aparece como material editorial e memória visual do próprio projeto.
 - Seções numeradas apenas quando a ordem editorial é útil.
 - Poucos contêineres; listas, índices e páginas abertas substituem grades de cards genéricos.
 - Sem gradientes chamativos, blobs, vidro, sombras gratuitas ou ilustrações de cérebro tecnológico.
@@ -37,7 +37,7 @@ A nova identidade do Mapadamente é um **arquivo cultural e intelectual sobre a 
 - Índice de temas como lista editorial.
 - Um destaque dominante: A Subjetividade Artificial.
 - Pensamento e acervo em sequências abertas, com respiro.
-- Sobre/coordenação como prova institucional.
+- Sobre e coordenação como prova institucional.
 - Atendimento como saída clara, sem aparência comercial.
 
 ## Responsividade

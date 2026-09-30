@@ -1,6 +1,6 @@
 # O Mapa da Mente — nova versão
 
-Redesign e reorganização do acervo do [Mapa da Mente](https://www.mapadamente.com.br/) na direção visual **Arquivo Cultural e Intelectual**.
+O Mapa da Mente, reorganizado na direção visual **Arquivo Cultural e Intelectual**.
 
 ## Stack
 - React 18
@@ -20,7 +20,7 @@ npm run build
 ```
 
 ## Arquitetura
-- `src/content.js`: conteúdo, rotas e fontes históricas.
+- `src/content.js`: conteúdo e rotas do site.
 - `src/App.jsx`: homepage, busca, navegação e templates internos.
 - `src/styles.css`: sistema visual e responsividade.
 - `PRODUCT.md`: verdade do produto e limites editoriais.
@@ -28,7 +28,7 @@ npm run build
 - `.impeccable/design.json`: tokens principais do sistema.
 
 ## Regra editorial
-Conteúdo clínico antigo é identificado como **acervo histórico** quando critérios, contatos ou tratamentos podem ter mudado. A nova versão não transforma material legado em orientação clínica atual sem revisão.
+Conteúdo clínico é apresentado de forma educativa e não substitui avaliação profissional. Critérios, contatos e informações terapêuticas devem ser mantidos atualizados.
 
 ## Publicação
 Cada push na `main` dispara o workflow de GitHub Pages.

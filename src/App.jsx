@@ -199,19 +199,19 @@ function ArchiveRelic({ compact = false }) {
       {!failed ? (
         <img
           src={assets.legacyHeader}
-          alt="Cabeçalho histórico do site O Mapa da Mente"
+          alt="Identidade visual de O Mapa da Mente"
           referrerPolicy="no-referrer"
           onError={() => setFailed(true)}
         />
       ) : (
         <div className="archive-relic__fallback">
           <strong>O Mapa da Mente</strong>
-          <span>fac-símile do acervo original</span>
+          <span>memória visual do projeto</span>
         </div>
       )}
       <figcaption>
-        <span>Acervo original</span>
-        <span>preservado como memória visual</span>
+        <span>O Mapa da Mente</span>
+        <span>memória visual do projeto</span>
       </figcaption>
     </figure>
   );
@@ -225,7 +225,6 @@ function Home() {
       <main id="conteudo">
         <section className="hero shell">
           <div className="hero__copy">
-            <p className="hero__overline">Saúde mental · psicologia · psiquiatria · pensamento</p>
             <h1>Uma travessia pelo pensamento humano.</h1>
             <p className="hero__lead">
               Um arquivo vivo para compreender saúde mental com linguagem clara, preservar ideias e aproximar pessoas de conhecimento e cuidado.
@@ -236,11 +235,6 @@ function Home() {
               </a>
               <a className="text-link" href="#/p/objetivos">Conhecer o projeto</a>
             </div>
-            <dl className="hero__facts">
-              <div><dt>3</dt><dd>públicos principais</dd></div>
-              <div><dt>20+</dt><dd>caminhos de conteúdo</dd></div>
-              <div><dt>1</dt><dd>acervo reorganizado</dd></div>
-            </dl>
           </div>
           <div className="hero__relic">
             <ArchiveRelic />
@@ -251,7 +245,7 @@ function Home() {
           <SectionHeader
             number="01"
             title="Explore por tema"
-            text="Um índice direto para os assuntos clínicos que estruturam o acervo histórico."
+            text="Um índice direto para os assuntos clínicos que estruturam o acervo."
             id="temas-title"
           />
           <div className="topic-index">
@@ -357,7 +351,7 @@ function ArchiveSection() {
               <span>{index === 0 ? <BookOpen size={21} /> : <Library size={21} />}</span>
               <strong>{page.title}</strong>
               <p>{page.deck}</p>
-              <span className="archive-ledger__status">{page.historical ? 'Acervo histórico' : 'Acervo'}</span>
+              <span className="archive-ledger__status">Acervo</span>
               <ArrowRight size={18} />
             </a>
           );
@@ -376,7 +370,7 @@ function AboutSection() {
           {!imageFailed ? (
             <img
               src={assets.alfredo}
-              alt="Alfredo Simonetti, coordenador histórico do Mapa da Mente"
+              alt="Alfredo Simonetti, coordenador do Mapa da Mente"
               loading="lazy"
               referrerPolicy="no-referrer"
               onError={() => setImageFailed(true)}
@@ -384,7 +378,7 @@ function AboutSection() {
           ) : (
             <div className="portrait-fallback">AS</div>
           )}
-          <span>Imagem do acervo original</span>
+          <span>Alfredo Simonetti</span>
         </div>
         <div className="about-section__copy">
           <span className="chapter-label">05 · Sobre o projeto</span>
@@ -456,16 +450,12 @@ function ContentPage({ page }) {
             <div className="content-hero__main">
               <div className="content-meta">
                 <span>{page.group}</span>
-                {page.historical && <span>Acervo histórico</span>}
                 {page.author && <span>Por {page.author}</span>}
               </div>
               <h1>{page.title}</h1>
               {page.subtitle && <p className="content-hero__subtitle">{page.subtitle}</p>}
               <p className="content-hero__deck">{page.deck}</p>
               <div className="content-hero__actions">
-                <a className="button button--primary" href={page.sourceUrl} target="_blank" rel="noreferrer">
-                  Abrir fonte no acervo original <ExternalLink size={16} />
-                </a>
                 <a className="text-link" href="#/">Voltar ao índice</a>
               </div>
             </div>
@@ -473,7 +463,7 @@ function ContentPage({ page }) {
               {page.image ? (
                 <figure className="profile-plate">
                   <img src={page.image} alt={page.title} referrerPolicy="no-referrer" />
-                  <figcaption>Imagem preservada do acervo original</figcaption>
+                  <figcaption>Alfredo Simonetti · O Mapa da Mente</figcaption>
                 </figure>
               ) : (
                 <ArchiveRelic compact />
@@ -499,7 +489,7 @@ function ContentPage({ page }) {
 
               {page.objectives && (
                 <section>
-                  <h2>Objetivos históricos</h2>
+                  <h2>Objetivos do projeto</h2>
                   <ol className="objective-list">
                     {page.objectives.map((objective) => <li key={objective}>{objective}</li>)}
                   </ol>
@@ -530,7 +520,7 @@ function ContentPage({ page }) {
 
               {page.contact && (
                 <section>
-                  <h2>Dados publicados no site legado</h2>
+                  <h2>Contato</h2>
                   <address className="contact-box">
                     <div><MapPin size={18} /><span>{page.contact.address}</span></div>
                     <div><span className="contact-box__label">Telefone</span><span>{page.contact.phone}</span></div>
@@ -550,7 +540,7 @@ function ContentPage({ page }) {
                 <a className="source-row" href={page.extraLink} target="_blank" rel="noreferrer">
                   <span>
                     <small>Documento do acervo</small>
-                    <strong>Abrir lista histórica de CAPS em PDF</strong>
+                    <strong>Abrir lista de CAPS em PDF</strong>
                   </span>
                   <ExternalLink size={18} />
                 </a>
@@ -566,11 +556,6 @@ function ContentPage({ page }) {
                   <ArrowRight size={15} />
                 </a>
               ))}
-              <a className="related-rail__archive" href={page.sourceUrl} target="_blank" rel="noreferrer">
-                <small>Fonte histórica</small>
-                <strong>Ver página original</strong>
-                <ArrowUpRight size={15} />
-              </a>
             </aside>
           </div>
         </article>
@@ -589,7 +574,7 @@ function AtendimentoIndex() {
         <div className="landing-page__intro">
           <span>Atendimento</span>
           <h1>Caminhos para transformar informação em acesso.</h1>
-          <p>O projeto original sempre incluiu o acesso aos serviços entre seus objetivos. Esta área reúne os caminhos do acervo com sinalização clara sobre o que precisa de confirmação atual.</p>
+          <p>Facilitar o acesso aos serviços de saúde mental faz parte dos objetivos do projeto. Esta área reúne caminhos para consultas, profissionais, rede pública e contato.</p>
         </div>
         <div className="landing-page__list">
           {careItems.map((key, index) => {
@@ -642,8 +627,8 @@ function Footer() {
         </div>
       </div>
       <div className="shell site-footer__fineprint">
-        <span>Nova leitura do acervo histórico do Mapa da Mente.</span>
-        <a href="https://www.mapadamente.com.br/" target="_blank" rel="noreferrer">Abrir site original <ExternalLink size={13} /></a>
+        <span>O Mapa da Mente · Informações & Orientações em Saúde Mental.</span>
+        <span>Saúde mental, psicologia, psiquiatria e pensamento.</span>
       </div>
     </footer>
   );

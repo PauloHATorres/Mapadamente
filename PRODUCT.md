@@ -1,14 +1,14 @@
 # PRODUCT — O Mapa da Mente
 
 ## Propósito
-O Mapa da Mente é um projeto de informação e orientação em saúde mental que reúne conteúdos para pacientes e familiares, profissionais e estudantes, pais e professores. A nova versão preserva o valor histórico do acervo e melhora acesso, leitura, organização e confiança.
+O Mapa da Mente é um projeto de informação e orientação em saúde mental que reúne conteúdos para pacientes e familiares, profissionais e estudantes, pais e professores. O site organiza o acervo acumulado para melhorar acesso, leitura, organização e confiança.
 
 ## Verdades do produto
 - Marca: O Mapa da Mente.
 - Assinatura: Informações & Orientações em Saúde Mental.
-- Coordenação histórica: Alfredo Simonetti.
+- Coordenação: Alfredo Simonetti.
 - O site combina saúde mental, psicologia, psiquiatria, psicanálise, história, formação e caminhos de atendimento.
-- Conteúdo antigo deve ser identificado como acervo histórico quando houver risco de desatualização clínica, institucional ou de contato.
+- Conteúdo clínico, institucional e de contato deve ser mantido atualizado e revisado quando necessário.
 - O site não prescreve tratamento e não substitui avaliação profissional.
 
 ## Públicos
