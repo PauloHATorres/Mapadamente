@@ -1,7 +1,7 @@
 const mediaBase = import.meta.env.BASE_URL + 'media/';
 
 export const assets = {
-  brandArchive: mediaBase + 'hero-mapadamente.webp',
+  brandArchive: mediaBase + 'hero-mapadamente.jpg',
   alfredo: mediaBase + 'alfredo.png'
 };
 
