@@ -1,0 +1,28 @@
+{
+  "name": "Mapadamente — Arquivo Cultural e Intelectual",
+  "version": 2,
+  "tokens": {
+    "color": {
+      "paper": "#f2ede2",
+      "paperDeep": "#e7dece",
+      "ink": "#132a46",
+      "inkSoft": "#44556a",
+      "blue": "#174f70",
+      "blueDark": "#0e3853",
+      "sage": "#78847b",
+      "white": "#fffdf8"
+    },
+    "font": {
+      "editorial": "Source Serif 4",
+      "interface": "Inter"
+    },
+    "radius": {
+      "small": "2px",
+      "medium": "10px"
+    }
+  },
+  "surface": {
+    "mode": "read",
+    "identity": "archive-cultural-intellectual"
+  }
+}

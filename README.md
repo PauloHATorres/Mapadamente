@@ -1,23 +1,34 @@
-# O Mapa da Mente — redesign
+# O Mapa da Mente — nova versão
 
-Protótipo funcional baseado na direção visual aprovada **Arquivo Cultural e Intelectual**.
+Redesign e reorganização do acervo do [Mapa da Mente](https://www.mapadamente.com.br/) na direção visual **Arquivo Cultural e Intelectual**.
 
-## O que está implementado
-- Homepage responsiva
-- Navegação mobile
-- Seções Temas, Pensamento, Acervo e Atendimento
-- Template editorial em `#/artigo/subjetividade-artificial`
-- Links para as páginas originais do Mapadamente enquanto a migração integral do acervo não é feita
-- Acessibilidade básica de foco e áreas de toque
+## Stack
+- React 18
+- Vite
+- Lucide React
+- GitHub Pages via GitHub Actions
 
 ## Rodar localmente
-
 ```bash
-npm run build
-npm run serve
+npm install
+npm run dev
 ```
 
-Abra `http://localhost:4173`.
+## Build
+```bash
+npm run build
+```
 
-## Observação
-Este protótipo não inventa conteúdo clínico. O texto integral de páginas ainda precisa ser migrado/conferido a partir do acervo original antes de substituir os links legados.
+## Arquitetura
+- `src/content.js`: conteúdo, rotas e fontes históricas.
+- `src/App.jsx`: homepage, busca, navegação e templates internos.
+- `src/styles.css`: sistema visual e responsividade.
+- `PRODUCT.md`: verdade do produto e limites editoriais.
+- `DESIGN.md`: direção visual aprovada.
+- `.impeccable/design.json`: tokens principais do sistema.
+
+## Regra editorial
+Conteúdo clínico antigo é identificado como **acervo histórico** quando critérios, contatos ou tratamentos podem ter mudado. A nova versão não transforma material legado em orientação clínica atual sem revisão.
+
+## Publicação
+Cada push na `main` dispara o workflow de GitHub Pages.
