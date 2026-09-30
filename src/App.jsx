@@ -196,17 +196,25 @@ function SearchPanel({ onClose }) {
   );
 }
 
-function ArchiveRelic({ compact = false }) {
+function ArchiveRelic({ compact = false, clean = false }) {
   const [failed, setFailed] = useState(false);
+  const className = [
+    'archive-relic',
+    compact ? 'archive-relic--compact' : '',
+    clean ? 'archive-relic--clean' : ''
+  ].filter(Boolean).join(' ');
+
   return (
-    <figure className={'archive-relic' + (compact ? ' archive-relic--compact' : '')}>
-      <div className="archive-relic__index" aria-hidden="true">
-        <span>ARQ.</span><span>MENTE</span><span>001</span>
-      </div>
+    <figure className={className}>
+      {!clean && (
+        <div className="archive-relic__index" aria-hidden="true">
+          <span>ARQ.</span><span>MENTE</span><span>001</span>
+        </div>
+      )}
       {!failed ? (
         <img
           src={assets.brandArchive}
-          alt="Identidade visual de O Mapa da Mente"
+          alt="Ilustração editorial do Mapa da Mente"
           referrerPolicy="no-referrer"
           onError={() => setFailed(true)}
           decoding="async"
@@ -215,13 +223,15 @@ function ArchiveRelic({ compact = false }) {
       ) : (
         <div className="archive-relic__fallback">
           <strong>O Mapa da Mente</strong>
-          <span>memória visual do projeto</span>
+          <span>imagem temporariamente indisponível</span>
         </div>
       )}
-      <figcaption>
-        <span>O Mapa da Mente</span>
-        <span>memória visual do projeto</span>
-      </figcaption>
+      {!clean && (
+        <figcaption>
+          <span>O Mapa da Mente</span>
+          <span>memória visual do projeto</span>
+        </figcaption>
+      )}
     </figure>
   );
 }
@@ -234,7 +244,7 @@ function Home() {
       <main id="conteudo">
         <section className="hero shell">
           <div className="hero__copy">
-            <h1>Uma travessia pelo pensamento humano.</h1>
+            <h1>Uma travessia pelo<br className="hero-title-break" />pensamento humano.</h1>
             <p className="hero__lead">
               Um arquivo vivo para compreender saúde mental com linguagem clara, preservar ideias e aproximar pessoas de conhecimento e cuidado.
             </p>
@@ -246,7 +256,7 @@ function Home() {
             </div>
           </div>
           <div className="hero__relic">
-            <ArchiveRelic />
+            <ArchiveRelic clean />
           </div>
         </section>
 
