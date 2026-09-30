@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -41,12 +41,25 @@ jobs:
             primary="$1"
             fallback="$2"
             output="$3"
-            curl --fail --location --retry 2 --connect-timeout 15 "$primary" --output "$output" \
-              || curl --fail --location --retry 2 --connect-timeout 15 "$fallback" --output "$output"
+            if [ ! -s "$output" ]; then
+              curl --fail --location --retry 2 --connect-timeout 15 "$primary" --output "$output" \
+                || curl --fail --location --retry 2 --connect-timeout 15 "$fallback" --output "$output"
+            fi
           }
           fetch_media "https://mapadamente.com.br/img/img_home/cabecalho.jpg" "http://mapadamente.com.br/img/img_home/cabecalho.jpg" "public/media/cabecalho.jpg"
           fetch_media "https://mapadamente.com.br/foto%20fredo.fw.png" "http://mapadamente.com.br/foto%20fredo.fw.png" "public/media/alfredo.png"
           fetch_media "https://mapadamente.com.br/CAPS_SP.pdf" "http://mapadamente.com.br/CAPS_SP.pdf" "public/media/CAPS_SP.pdf"
+
+      - name: Persist project media
+        shell: bash
+        run: |
+          if [ -n "$(git status --porcelain public/media)" ]; then
+            git config user.name "Mapadamente Pages"
+            git config user.email "actions@users.noreply.github.com"
+            git add public/media
+            git commit -m "chore: internalize Mapadamente media"
+            git push origin HEAD:main
+          fi
 
       - name: Build
         run: npm run build
