@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="O Mapa da Mente — Informações & Orientações em Saúde Mental" />
+<meta name="theme-color" content="#f6f2e9" />
+<title>O Mapa da Mente</title>
+<style>
+:root{
+  --paper:#f6f2e9;
+  --paper-2:#efe8da;
+  --ink:#132a46;
+  --ink-2:#31465e;
+  --muted:#6b746f;
+  --rule:rgba(19,42,70,.16);
+  --blue:#0e4668;
+  --blue-soft:#7598aa;
+  --white:#fffdf8;
+  --serif:"Noto Serif", Georgia, "Times New Roman", serif;
+  --sans:"Noto Sans", Arial, sans-serif;
+  --max:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+button{font:inherit}
+.site-header{position:sticky;top:0;z-index:20;background:rgba(246,242,233,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.header-inner,.footer-inner,.section-shell,.article-shell{width:min(calc(100% - 64px),var(--max));margin:auto}
+.header-inner{min-height:88px;display:flex;align-items:center;gap:36px}
+.brand{display:flex;flex-direction:column;min-width:300px}
+.brand strong{font-family:var(--serif);font-size:24px;line-height:1;letter-spacing:.045em}
+.brand span{font-family:var(--serif);font-size:11px;margin-top:6px;letter-spacing:.015em;color:var(--ink-2)}
+.desktop-nav{margin-left:auto;display:flex;align-items:center;gap:34px;font-size:13px}
+.desktop-nav a,.site-footer nav a{position:relative}
+.desktop-nav a:after,.site-footer nav a:after{content:"";position:absolute;left:0;right:100%;bottom:-6px;border-bottom:1px solid var(--blue);transition:right .2s ease}
+.desktop-nav a:hover:after,.site-footer nav a:hover:after{right:0}
+.header-tools{display:flex;align-items:center;gap:24px;margin-left:20px}
+.header-quote{font-family:var(--serif);font-style:italic;font-size:12px;line-height:1.4;color:var(--muted);padding-left:28px;border-left:1px solid var(--rule)}
+.menu-button{display:none;width:44px;height:44px;border:0;background:transparent;cursor:pointer;padding:12px}
+.menu-button span{display:block;border-top:2px solid var(--ink);margin:7px 0}
+.mobile-nav{display:none}
+.hero{display:grid;grid-template-columns:44% 56%;min-height:570px;border-bottom:1px solid var(--rule)}
+.hero-copy{padding:72px 56px 72px 0;align-self:center}
+.section-tag{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:13px;margin-bottom:10px}
+.section-tag i{width:34px;border-top:1px solid var(--blue-soft)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.035em}
+.hero h1{font-size:58px;line-height:1.06;max-width:620px}
+.hero-copy>p{max-width:590px;font-family:var(--serif);font-size:19px;color:var(--ink-2);margin:22px 0 28px}
+.hero-actions{display:flex;align-items:center;gap:28px}
+.primary-action{display:inline-flex;align-items:center;justify-content:center;gap:16px;min-height:48px;padding:0 22px;background:var(--blue);color:var(--white);font-size:14px;border:1px solid var(--blue);transition:.2s ease}
+.primary-action:hover{background:transparent;color:var(--blue)}
+.text-action{font-size:13px;border-bottom:1px solid var(--blue-soft);padding-bottom:4px}
+.archive-art{position:relative;overflow:hidden;min-height:570px;color:var(--blue);background:linear-gradient(90deg,var(--paper-2),#e7e0d3)}
+.archive-art:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 89px,rgba(19,42,70,.045) 90px),repeating-linear-gradient(0deg,transparent 0 89px,rgba(19,42,70,.035) 90px);opacity:.65}
+.paper{position:absolute;background:#efe5d2;border:1px solid rgba(19,42,70,.12)}
+.paper-a{left:4%;top:10%;width:42%;height:39%;transform:rotate(-2deg)}
+.paper-b{right:5%;bottom:8%;width:39%;height:39%;transform:rotate(1deg)}
+.paper-c{left:26%;bottom:9%;width:48%;height:24%;background:rgba(190,205,207,.55)}
+.mind-svg{position:absolute;width:74%;height:74%;left:17%;top:13%;color:var(--ink);opacity:.88}
+.art-circle{position:absolute;border-radius:50%;background:var(--blue);opacity:.9}
+.art-circle-a{width:110px;height:110px;left:12%;top:19%}
+.art-circle-b{width:54px;height:54px;right:14%;top:12%;background:#1f6a8b}
+.art-note,.art-phrase{position:absolute;font-family:var(--serif);font-size:11px;letter-spacing:.22em;line-height:1.6}
+.art-note{left:4%;bottom:10%;padding:12px;background:rgba(246,242,233,.82)}
+.art-phrase{right:3%;top:28%;padding:14px;background:rgba(246,242,233,.88)}
+.editorial-grid{display:grid;grid-template-columns:37% 31% 32%;border-bottom:1px solid var(--rule)}
+.editorial-panel{padding:28px 30px 30px;border-right:1px solid var(--rule)}
+.editorial-panel:first-child{padding-left:0}
+.editorial-panel:last-child{border-right:0;padding-right:0}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:14px}
+.section-heading h2{font-size:26px;line-height:1.12}
+.section-heading a,.section-heading .quiet{font-size:11px;color:var(--blue);white-space:nowrap}
+.section-heading .section-tag{margin-bottom:2px}
+.topic-row{display:grid;grid-template-columns:38px 1fr 20px;align-items:center;gap:12px;min-height:62px;border-bottom:1px solid var(--rule);transition:.18s ease}
+.topic-row:hover{padding-left:8px;background:rgba(255,255,255,.2)}
+.topic-icon{width:34px;height:34px;border:1px solid var(--blue-soft);border-radius:50%;display:grid;place-items:center;color:var(--blue);font-family:var(--serif);font-size:18px}
+.topic-row strong{display:block;font-family:var(--serif);font-size:17px}
+.topic-row small{display:block;color:var(--muted);font-size:11px}
+.topic-row b{font-weight:400;color:var(--blue)}
+.feature-art{height:178px;position:relative;overflow:hidden;background:#363e3c;margin:6px 0 16px}
+.feature-art:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,#1a272c 0 42%,#c6b89f 42% 68%,#d9d2c2 68%);opacity:.9}
+.portrait-shape,.ghost-shape{position:absolute;z-index:2;width:92px;height:132px;top:28px;border-radius:46% 46% 38% 38% / 38% 38% 54% 54%;background:#171d21}
+.portrait-shape{left:26%}.ghost-shape{right:22%;background:rgba(246,242,233,.45);filter:blur(1px)}
+.feature-art span{position:absolute;z-index:3;left:12px;bottom:9px;color:#fff;font-size:9px;letter-spacing:.18em}
+.eyebrow{display:block;font-size:9px;letter-spacing:.2em;color:var(--blue);margin-bottom:5px}
+.feature h3{font-size:27px;line-height:1.08;margin-bottom:4px}
+.feature .byline{font-family:var(--serif);font-size:12px;margin:0 0 12px}
+.feature>p:not(.byline){font-family:var(--serif);font-size:14px;color:var(--ink-2)}
+.feature>a{font-size:12px;color:var(--blue);border-bottom:1px solid var(--blue-soft)}
+.thinking-row{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.thinking-row .thumb{height:82px;background:#d2c6ae;position:relative;overflow:hidden}
+.thumb-1:after{content:"";position:absolute;inset:10px 18px;border:1px solid #60717e;border-top-left-radius:45px;border-top-right-radius:45px}
+.thumb-2{background:linear-gradient(135deg,#121b22,#7e827f)!important}.thumb-2:after{content:"";position:absolute;width:42px;height:58px;border-radius:45%;background:#b9bab4;left:38px;top:13px}
+.thumb-3{background:repeating-linear-gradient(90deg,#2b2b29 0 8px,#8a7557 9px 15px,#4e3e2d 16px 25px)!important}
+.thinking-row strong{display:block;font-family:var(--serif);font-size:15px;line-height:1.15}
+.thinking-row p{font-family:var(--serif);font-size:11px;line-height:1.35;margin:5px 0 0;color:var(--muted)}
+.ruled-section{padding-top:26px;padding-bottom:30px;border-bottom:1px solid var(--rule)}
+.section-heading.wide{align-items:end}
+.archive-grid,.care-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.archive-item,.care-item{min-height:170px;padding:18px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;transition:.18s ease}
+.archive-item:hover,.care-item:hover{background:rgba(255,255,255,.28)}
+.archive-icon,.care-item>span{display:block;font-family:var(--serif);font-size:28px;color:var(--blue);margin-bottom:24px}
+.archive-item strong,.care-item strong{font-family:var(--serif);font-size:17px}
+.archive-item p,.care-item p{font-family:var(--serif);font-size:12px;color:var(--muted);margin:6px 24px 0 0}
+.archive-item b,.care-item b{position:absolute;right:16px;bottom:14px;font-weight:400}
+.site-footer{padding:22px 0 30px;border-top:1px solid var(--rule)}
+.footer-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:40px}
+.site-footer nav{display:flex;gap:28px;font-size:11px}.site-footer p{text-align:right;font-family:var(--serif);font-size:11px;color:var(--muted);line-height:1.5}.site-footer .brand strong{font-size:18px}.site-footer .brand span{font-size:9px}
+.article-shell{padding-top:22px}.breadcrumb{display:flex;gap:10px;align-items:center;font-size:11px;color:var(--muted);padding:10px 0 18px}.breadcrumb a{color:var(--blue)}
+.article-hero{display:grid;grid-template-columns:41% 59%;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.article-title{padding:44px 48px 42px 0;align-self:center}.article-title h1{font-size:58px;line-height:1.02}.article-author{font-family:var(--serif);font-size:15px;margin:24px 0 10px}.article-note{font-family:var(--serif);font-size:15px;color:var(--ink-2);max-width:470px;margin-bottom:24px}.article-hero .archive-art{min-height:430px}
+.article-layout{display:grid;grid-template-columns:minmax(0,740px) 320px;gap:76px;justify-content:center;padding:50px 0 70px}.article-body{font-family:var(--serif);font-size:18px;color:#2f4052}.article-body .lead{font-size:22px;line-height:1.55;color:var(--ink)}.article-body h2{font-size:30px;margin:38px 0 10px}.article-body blockquote{border-left:2px solid var(--blue);font-style:italic;font-size:24px;line-height:1.55;margin:42px 0;padding:6px 0 6px 28px;color:var(--ink)}
+.article-aside{border-left:1px solid var(--rule);padding-left:28px;align-self:start}.article-aside>a{display:grid;grid-template-columns:1fr 18px;gap:2px 10px;padding:15px 0;border-bottom:1px solid var(--rule)}.article-aside small{grid-column:1/2;font-size:9px;letter-spacing:.18em;color:var(--blue)}.article-aside strong{font-family:var(--serif);font-size:14px}.article-aside span{grid-column:2;grid-row:1/3;align-self:center}
+@media(max-width:1050px){
+  .header-quote{display:none}.desktop-nav{gap:22px}.brand{min-width:260px}.editorial-grid{grid-template-columns:1fr 1fr}.thinking{grid-column:1/-1;border-top:1px solid var(--rule)}.thinking-list{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.thinking-row{grid-template-columns:1fr}.thinking-row .thumb{height:120px}.feature{border-right:0}.hero h1{font-size:50px}.article-layout{grid-template-columns:minmax(0,680px) 280px;gap:40px}
+}
+@media(max-width:760px){
+  .header-inner,.footer-inner,.section-shell,.article-shell{width:min(calc(100% - 40px),var(--max))}.header-inner{min-height:74px}.brand{min-width:0;flex:1}.brand strong{font-size:19px}.brand span{font-size:9px}.desktop-nav{display:none}.header-tools{margin-left:0}.menu-button{display:block}.mobile-nav{display:flex;flex-direction:column;padding:14px 20px 20px;border-top:1px solid var(--rule)}.mobile-nav a{min-height:44px;display:flex;align-items:center;border-bottom:1px solid var(--rule);font-family:var(--serif);font-size:18px}
+  .hero{grid-template-columns:1fr;padding-top:28px}.hero-copy{padding:20px 0 28px}.hero h1{font-size:40px}.hero-copy>p{font-size:16px}.hero-actions{gap:18px;flex-wrap:wrap}.archive-art{min-height:330px}.hero .archive-art{margin-left:-20px;margin-right:-20px}.mind-svg{width:85%;height:85%;left:8%;top:7%}.art-circle-a{width:78px;height:78px}.art-note,.art-phrase{font-size:8px}
+  .editorial-grid{display:block}.editorial-panel,.editorial-panel:first-child,.editorial-panel:last-child{padding:24px 0;border-right:0;border-bottom:1px solid var(--rule)}.section-heading h2{font-size:25px}.section-heading a{font-size:10px}.topic-row{min-height:60px}.feature-art{height:220px}.feature h3{font-size:28px}.thinking-list{display:block}.thinking-row{grid-template-columns:120px 1fr}.thinking-row .thumb{height:82px}
+  .archive-grid,.care-grid{grid-template-columns:1fr 1fr}.archive-item,.care-item{min-height:160px}.section-heading.wide{display:block}.section-heading .quiet{display:block;margin-top:7px;white-space:normal}.footer-inner{grid-template-columns:1fr}.site-footer nav{display:flex;flex-wrap:wrap;gap:16px 22px}.site-footer p{text-align:left}
+  .breadcrumb{overflow:auto;white-space:nowrap}.article-hero{display:block}.article-title{padding:32px 0 28px}.article-title h1{font-size:42px}.article-hero .archive-art{min-height:310px;margin:0 -20px}.article-layout{display:block;padding:36px 0 52px}.article-body{font-size:17px}.article-body .lead{font-size:20px}.article-body blockquote{font-size:21px;margin:34px 0}.article-aside{border-left:0;border-top:1px solid var(--rule);padding:28px 0 0;margin-top:42px}
+}
+@media(max-width:430px){.archive-grid,.care-grid{grid-template-columns:1fr}.thinking-row{grid-template-columns:105px 1fr}.hero h1{font-size:36px}.primary-action{width:100%}.hero-actions .text-action{margin:0 auto}.section-heading{align-items:start}.article-title h1{font-size:38px}}
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script>
+const { useEffect, useState } = React;
+const SITE = 'https://mapadamente.com.br';
+const topics = [
+    ['Ansiedade', 'Informações e orientações', '/ansiedade.htm', '◌'],
+    ['Depressão', 'Conteúdo do acervo', '/depressao.htm', '≈'],
+    ['TDAH', 'Hiperatividade / TDAH', '/hiperatividade.htm', '✣'],
+    ['Alzheimer', 'Informações sobre Alzheimer', '/alzheimer.htm', '♧'],
+    ['Remédios psiquiátricos', 'Informações sobre medicamentos', '/remedios_psiq.htm', '◐'],
+    ['Obesidade', 'Conteúdo presente no acervo', '/obesidade.htm', '❧'],
+];
+const thinking = [
+    ['Psicologia Hospitalar', 'O que é, para que serve e como funciona a Psicologia Hospitalar.', '/psico_hospitalar.htm', 'PSICOLOGIA'],
+    ['Psiquiatria & Psicanálise', 'Um dos eixos históricos de pensamento presentes no projeto.', '/psiquiatria_psica.htm', 'PSIQUIATRIA'],
+    ['História da Medicina', 'Conteúdos históricos do acervo sobre medicina e experiência humana.', '/hist_med.htm', 'HISTÓRIA'],
+];
+const archive = [
+    ['Livros', 'Obras e publicações ligadas ao projeto.', '/livro.htm', '▥'],
+    ['Vídeos e Entrevistas', 'Conversas, entrevistas e conteúdos audiovisuais.', '/entrevista_jp.htm', '▶'],
+    ['Cursos & Palestras', 'Materiais de formação tratados como acervo histórico.', '/CURSOS.HTM', '⌂'],
+    ['CID-10', 'Acesso ao conteúdo de classificação presente no site original.', '/CID10.html', '≡'],
+];
+const care = [
+    ['Consultas', 'Informações sobre atendimento.', '/consultas.html', '⌁'],
+    ['Indicador Profissional', 'Caminho para localizar profissionais.', '/indicador_prof.htm', '◎'],
+    ['Tratamento Público', 'Informações sobre acesso à rede pública.', '/mapa_brasil.html', '⌂'],
+    ['Fale Conosco', 'Contato, dúvidas e mensagens.', '/fale.htm', '✉'],
+];
+function originalUrl(path) { return SITE + path; }
+function Brand() {
+    return React.createElement("a", { className: "brand", href: "#/", "aria-label": "O Mapa da Mente \u2014 p\u00E1gina inicial" },
+        React.createElement("strong", null, "O MAPA DA MENTE"),
+        React.createElement("span", null, "Informa\u00E7\u00F5es & Orienta\u00E7\u00F5es em Sa\u00FAde Mental"));
+}
+function Header() {
+    const [open, setOpen] = useState(false);
+    return React.createElement("header", { className: "site-header" },
+        React.createElement("div", { className: "header-inner" },
+            React.createElement(Brand, null),
+            React.createElement("nav", { className: "desktop-nav", "aria-label": "Navega\u00E7\u00E3o principal" },
+                React.createElement("a", { href: "#temas" }, "Temas"),
+                React.createElement("a", { href: "#pensamento" }, "Pensamento"),
+                React.createElement("a", { href: "#acervo" }, "Acervo"),
+                React.createElement("a", { href: originalUrl('/objetivo_site.htm'), target: "_blank", rel: "noreferrer" }, "Sobre"),
+                React.createElement("a", { href: "#atendimento" }, "Atendimento")),
+            React.createElement("div", { className: "header-tools" },
+                React.createElement("span", { className: "header-quote" },
+                    "Conhecer a mente humana",
+                    React.createElement("br", null),
+                    "\u00E9 tamb\u00E9m conhecer o mundo."),
+                React.createElement("button", { className: "menu-button", "aria-expanded": open, "aria-label": "Abrir menu", onClick: () => setOpen(!open) },
+                    React.createElement("span", null),
+                    React.createElement("span", null)))),
+        open && React.createElement("nav", { className: "mobile-nav", "aria-label": "Navega\u00E7\u00E3o mobile" },
+            React.createElement("a", { href: "#temas", onClick: () => setOpen(false) }, "Temas"),
+            React.createElement("a", { href: "#pensamento", onClick: () => setOpen(false) }, "Pensamento"),
+            React.createElement("a", { href: "#acervo", onClick: () => setOpen(false) }, "Acervo"),
+            React.createElement("a", { href: originalUrl('/objetivo_site.htm'), target: "_blank", rel: "noreferrer" }, "Sobre"),
+            React.createElement("a", { href: "#atendimento", onClick: () => setOpen(false) }, "Atendimento")));
+}
+function SectionTag({ n }) { return React.createElement("div", { className: "section-tag" },
+    React.createElement("span", null, n),
+    React.createElement("i", null)); }
+function ArchiveArtwork() {
+    return React.createElement("div", { className: "archive-art", role: "img", "aria-label": "Composi\u00E7\u00E3o gr\u00E1fica inspirada em arquivos, mapas, anatomia e hist\u00F3ria do pensamento" },
+        React.createElement("div", { className: "paper paper-a" }),
+        React.createElement("div", { className: "paper paper-b" }),
+        React.createElement("div", { className: "paper paper-c" }),
+        React.createElement("svg", { className: "mind-svg", viewBox: "0 0 420 360", "aria-hidden": "true" },
+            React.createElement("circle", { cx: "185", cy: "176", r: "108", fill: "none", stroke: "currentColor", strokeWidth: "1.5" }),
+            React.createElement("path", { d: "M125 188c-15-51 9-98 53-112 42-14 84 7 101 44 15 34 5 69-17 91-14 14-17 25-15 43H159c3-19-2-31-15-45-9-10-15-16-19-21Z", fill: "none", stroke: "currentColor", strokeWidth: "2" }),
+            React.createElement("path", { d: "M153 118c23 17 18 42 41 49 17 5 30-4 44-20M146 164c21 4 35 19 40 44M208 106c-5 21 8 33 22 45M188 167c-8 22 2 45 25 59M245 170c-11 17-10 34-2 51", fill: "none", stroke: "currentColor", strokeWidth: "1.4" }),
+            React.createElement("path", { d: "M260 272c28-40 38-88 37-134M297 153c25-21 43-33 66-41M296 183c27 1 49 7 71 18M288 220c27 14 45 29 60 53", fill: "none", stroke: "currentColor", strokeWidth: "1.6" }),
+            React.createElement("path", { d: "M360 112c-13-18-26-21-39-11 5 17 17 25 39 11ZM368 201c-17-13-31-12-42 2 9 15 23 20 42-2ZM348 273c-12-19-25-23-39-14 3 18 16 28 39 14Z", fill: "none", stroke: "currentColor", strokeWidth: "1.4" })),
+        React.createElement("div", { className: "art-circle art-circle-a" }),
+        React.createElement("div", { className: "art-circle art-circle-b" }),
+        React.createElement("p", { className: "art-note" },
+            "PENSAMENTO",
+            React.createElement("br", null),
+            "CI\u00CANCIA",
+            React.createElement("br", null),
+            "SA\u00DADE",
+            React.createElement("br", null),
+            "CULTURA",
+            React.createElement("br", null),
+            "VIDAS REAIS"),
+        React.createElement("p", { className: "art-phrase" },
+            "A mente tamb\u00E9m",
+            React.createElement("br", null),
+            "\u00E9 um lugar",
+            React.createElement("br", null),
+            "de encontro."));
+}
+function Home() {
+    return React.createElement(React.Fragment, null,
+        React.createElement(Header, null),
+        React.createElement("main", null,
+            React.createElement("section", { className: "hero section-shell" },
+                React.createElement("div", { className: "hero-copy" },
+                    React.createElement(SectionTag, { n: "01" }),
+                    React.createElement("h1", null,
+                        "Uma travessia pelo",
+                        React.createElement("br", null),
+                        "pensamento humano."),
+                    React.createElement("p", null, "Um acervo sobre sa\u00FAde mental, psicologia, psiquiatria e cultura \u2014 organizado para leitura, descoberta e orienta\u00E7\u00E3o."),
+                    React.createElement("div", { className: "hero-actions" },
+                        React.createElement("a", { className: "primary-action", href: "#acervo" },
+                            "Explorar o acervo ",
+                            React.createElement("span", null, "\u2192")),
+                        React.createElement("a", { className: "text-action", href: originalUrl('/objetivo_site.htm'), target: "_blank", rel: "noreferrer" }, "Sobre o projeto"))),
+                React.createElement(ArchiveArtwork, null)),
+            React.createElement("div", { className: "editorial-grid section-shell" },
+                React.createElement("section", { id: "temas", className: "topics editorial-panel" },
+                    React.createElement("div", { className: "section-heading" },
+                        React.createElement("div", null,
+                            React.createElement(SectionTag, { n: "02" }),
+                            React.createElement("h2", null, "Explore por tema")),
+                        React.createElement("a", { href: SITE, target: "_blank", rel: "noreferrer" }, "Ver site original \u2192")),
+                    React.createElement("div", { className: "topic-list" }, topics.map(([title, desc, path, icon]) => React.createElement("a", { className: "topic-row", key: title, href: originalUrl(path), target: "_blank", rel: "noreferrer" },
+                        React.createElement("span", { className: "topic-icon" }, icon),
+                        React.createElement("span", null,
+                            React.createElement("strong", null, title),
+                            React.createElement("small", null, desc)),
+                        React.createElement("b", null, "\u2192"))))),
+                React.createElement("section", { className: "feature editorial-panel" },
+                    React.createElement("div", { className: "section-heading" },
+                        React.createElement("div", null,
+                            React.createElement(SectionTag, { n: "03" }),
+                            React.createElement("h2", null, "Em destaque"))),
+                    React.createElement("div", { className: "feature-art" },
+                        React.createElement("div", { className: "portrait-shape" }),
+                        React.createElement("div", { className: "ghost-shape" }),
+                        React.createElement("span", null, "ARQUIVO / ENSAIO")),
+                    React.createElement("span", { className: "eyebrow" }, "ENSAIO"),
+                    React.createElement("h3", null, "A Subjetividade Artificial"),
+                    React.createElement("p", { className: "byline" }, "Alfredo Simonetti"),
+                    React.createElement("p", null, "Um dos conte\u00FAdos autorais em destaque no acervo do Mapa da Mente."),
+                    React.createElement("a", { href: originalUrl('/subjetividade.html'), target: "_blank", rel: "noreferrer" }, "Abrir conte\u00FAdo original \u2192")),
+                React.createElement("section", { id: "pensamento", className: "thinking editorial-panel" },
+                    React.createElement("div", { className: "section-heading" },
+                        React.createElement("div", null,
+                            React.createElement(SectionTag, { n: "04" }),
+                            React.createElement("h2", null, "Pensamento e Psicologia"))),
+                    React.createElement("div", { className: "thinking-list" }, thinking.map(([title, desc, path, cat], i) => React.createElement("a", { className: "thinking-row", href: originalUrl(path), target: "_blank", rel: "noreferrer", key: title },
+                        React.createElement("div", { className: 'thumb thumb-' + (i + 1), "aria-hidden": "true" }),
+                        React.createElement("div", null,
+                            React.createElement("span", { className: "eyebrow" }, cat),
+                            React.createElement("strong", null, title),
+                            React.createElement("p", null, desc))))))),
+            React.createElement("section", { id: "acervo", className: "archive section-shell ruled-section" },
+                React.createElement("div", { className: "section-heading wide" },
+                    React.createElement("div", null,
+                        React.createElement(SectionTag, { n: "05" }),
+                        React.createElement("h2", null, "Acervo")),
+                    React.createElement("span", { className: "quiet" }, "Textos, livros, v\u00EDdeos e materiais reunidos ao longo do projeto.")),
+                React.createElement("div", { className: "archive-grid" }, archive.map(([title, desc, path, icon]) => React.createElement("a", { href: originalUrl(path), target: "_blank", rel: "noreferrer", className: "archive-item", key: title },
+                    React.createElement("span", { className: "archive-icon" }, icon),
+                    React.createElement("strong", null, title),
+                    React.createElement("p", null, desc),
+                    React.createElement("b", null, "\u2192"))))),
+            React.createElement("section", { id: "atendimento", className: "care section-shell ruled-section" },
+                React.createElement("div", { className: "section-heading wide" },
+                    React.createElement("div", null,
+                        React.createElement(SectionTag, { n: "06" }),
+                        React.createElement("h2", null, "Atendimento")),
+                    React.createElement("span", { className: "quiet" }, "Caminhos j\u00E1 existentes no projeto original.")),
+                React.createElement("div", { className: "care-grid" }, care.map(([title, desc, path, icon]) => React.createElement("a", { href: originalUrl(path), target: "_blank", rel: "noreferrer", className: "care-item", key: title },
+                    React.createElement("span", null, icon),
+                    React.createElement("strong", null, title),
+                    React.createElement("p", null, desc),
+                    React.createElement("b", null, "\u2192")))))),
+        React.createElement(Footer, null));
+}
+function ArticleTemplate() {
+    return React.createElement(React.Fragment, null,
+        React.createElement(Header, null),
+        React.createElement("main", { className: "article-shell" },
+            React.createElement("div", { className: "breadcrumb" },
+                React.createElement("a", { href: "#/" }, "In\u00EDcio"),
+                React.createElement("span", null, "\u203A"),
+                React.createElement("span", null, "Pensamento"),
+                React.createElement("span", null, "\u203A"),
+                React.createElement("strong", null, "A Subjetividade Artificial")),
+            React.createElement("header", { className: "article-hero" },
+                React.createElement("div", { className: "article-title" },
+                    React.createElement("span", { className: "eyebrow" }, "ENSAIO"),
+                    React.createElement("h1", null,
+                        "A Subjetividade",
+                        React.createElement("br", null),
+                        "Artificial"),
+                    React.createElement("p", { className: "article-author" },
+                        "Por ",
+                        React.createElement("strong", null, "Alfredo Simonetti")),
+                    React.createElement("p", { className: "article-note" }, "Este layout j\u00E1 est\u00E1 preparado para receber o texto integral do acervo original, preservando autoria e refer\u00EAncias."),
+                    React.createElement("a", { className: "primary-action", href: originalUrl('/subjetividade.html'), target: "_blank", rel: "noreferrer" },
+                        "Abrir vers\u00E3o original ",
+                        React.createElement("span", null, "\u2197"))),
+                React.createElement(ArchiveArtwork, null)),
+            React.createElement("div", { className: "article-layout" },
+                React.createElement("article", { className: "article-body" },
+                    React.createElement("p", { className: "lead" }, "A p\u00E1gina editorial foi constru\u00EDda como template de leitura do novo Mapadamente. O texto completo n\u00E3o foi reproduzido nesta vers\u00E3o porque ainda precisa ser migrado e conferido a partir do acervo original."),
+                    React.createElement("h2", null, "Estrutura de leitura"),
+                    React.createElement("p", null, "O template prev\u00EA t\u00EDtulos e subt\u00EDtulos fortes, coluna confort\u00E1vel, cita\u00E7\u00F5es, notas e refer\u00EAncias. O objetivo \u00E9 tornar conte\u00FAdos longos mais leg\u00EDveis sem alterar o sentido do material publicado."),
+                    React.createElement("blockquote", null, "O projeto visual trata o acervo como patrim\u00F4nio editorial: leitura antes de decora\u00E7\u00E3o."),
+                    React.createElement("h2", null, "Conte\u00FAdo relacionado"),
+                    React.createElement("p", null, "Enquanto a migra\u00E7\u00E3o integral n\u00E3o \u00E9 conclu\u00EDda, os caminhos abaixo apontam diretamente para as p\u00E1ginas j\u00E1 existentes.")),
+                React.createElement("aside", { className: "article-aside" },
+                    React.createElement("span", { className: "eyebrow" }, "NO ACERVO"),
+                    thinking.map(([title, , path, cat]) => React.createElement("a", { href: originalUrl(path), target: "_blank", rel: "noreferrer", key: title },
+                        React.createElement("small", null, cat),
+                        React.createElement("strong", null, title),
+                        React.createElement("span", null, "\u2192")))))),
+        React.createElement(Footer, null));
+}
+function Footer() {
+    return React.createElement("footer", { className: "site-footer" },
+        React.createElement("div", { className: "footer-inner" },
+            React.createElement(Brand, null),
+            React.createElement("nav", null,
+                React.createElement("a", { href: "#temas" }, "Temas"),
+                React.createElement("a", { href: "#pensamento" }, "Pensamento"),
+                React.createElement("a", { href: "#acervo" }, "Acervo"),
+                React.createElement("a", { href: originalUrl('/objetivo_site.htm'), target: "_blank", rel: "noreferrer" }, "Sobre"),
+                React.createElement("a", { href: "#atendimento" }, "Atendimento")),
+            React.createElement("p", null,
+                "Mais conhecimento.",
+                React.createElement("br", null),
+                React.createElement("em", null, "Mais humanidade."))));
+}
+function App() {
+    const [hash, setHash] = useState(location.hash || '#/');
+    useEffect(() => { const h = () => setHash(location.hash || '#/'); addEventListener('hashchange', h); return () => removeEventListener('hashchange', h); }, []);
+    if (hash.startsWith('#/artigo'))
+        return React.createElement(ArticleTemplate, null);
+    return React.createElement(Home, null);
+}
+ReactDOM.render(React.createElement(App, null), document.getElementById('root'));
+
+</script>
+</body>
+</html>
