@@ -1,8 +1,8 @@
-export const siteAssetBase = 'https://www.mapadamente.com.br';
+const mediaBase = import.meta.env.BASE_URL + 'media/';
 
 export const assets = {
-  legacyHeader: siteAssetBase + '/img/img_home/cabecalho.jpg',
-  alfredo: siteAssetBase + '/foto%20fredo.fw.png'
+  brandArchive: mediaBase + 'cabecalho.jpg',
+  alfredo: mediaBase + 'alfredo.png'
 };
 
 export const pages = {
@@ -317,7 +317,7 @@ export const pages = {
         body: 'O Mapa da Mente reúne referências de CAPS e outros serviços públicos. Endereços, telefones e cobertura podem mudar; confirme os dados em canais oficiais locais antes de se deslocar.'
       }
     ],
-    extraLink: siteAssetBase + '/CAPS_SP.pdf',
+    extraLink: mediaBase + 'CAPS_SP.pdf',
     note: 'Os contatos do acervo podem estar desatualizados.'
   },
   faleConosco: {

@@ -32,6 +32,22 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
+      - name: Collect project media
+        shell: bash
+        run: |
+          set -e
+          mkdir -p public/media
+          fetch_media () {
+            primary="$1"
+            fallback="$2"
+            output="$3"
+            curl --fail --location --retry 2 --connect-timeout 15 "$primary" --output "$output" \
+              || curl --fail --location --retry 2 --connect-timeout 15 "$fallback" --output "$output"
+          }
+          fetch_media "https://mapadamente.com.br/img/img_home/cabecalho.jpg" "http://mapadamente.com.br/img/img_home/cabecalho.jpg" "public/media/cabecalho.jpg"
+          fetch_media "https://mapadamente.com.br/foto%20fredo.fw.png" "http://mapadamente.com.br/foto%20fredo.fw.png" "public/media/alfredo.png"
+          fetch_media "https://mapadamente.com.br/CAPS_SP.pdf" "http://mapadamente.com.br/CAPS_SP.pdf" "public/media/CAPS_SP.pdf"
+
       - name: Build
         run: npm run build
 

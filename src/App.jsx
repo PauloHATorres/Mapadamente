@@ -205,7 +205,7 @@ function ArchiveRelic({ compact = false }) {
       </div>
       {!failed ? (
         <img
-          src={assets.legacyHeader}
+          src={assets.brandArchive}
           alt="Identidade visual de O Mapa da Mente"
           referrerPolicy="no-referrer"
           onError={() => setFailed(true)}

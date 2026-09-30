@@ -22,7 +22,7 @@ A nova identidade do Mapadamente é um **arquivo cultural e intelectual sobre a 
 - ink-soft: #44556a
 - blue: #174f70
 - blue-dark: #0e3853
-- sage: #78847b
+- sage: #52645a
 - rule: rgba(19, 42, 70, 0.18)
 - white: #fffdf8
 
