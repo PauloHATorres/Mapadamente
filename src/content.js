@@ -18,7 +18,7 @@ export const pages = {
       },
       {
         title: 'Cuidado e tratamento',
-        body: 'O conteúdo destaca que o sofrimento não deve ser minimizado e descreve tratamento combinado, com acompanhamento médico e psicoterapia. Nesta nova versão, o conteúdo é preservado como acervo e deve ser lido junto a orientação profissional atual.'
+        body: 'O conteúdo destaca que o sofrimento não deve ser minimizado e descreve tratamento combinado, com acompanhamento médico e psicoterapia. O conteúdo deve ser lido como informação educativa e junto a orientação profissional atual.'
       }
     ],
     note: 'Informações gerais para compreensão do tema. Diagnóstico e tratamento exigem avaliação profissional individual.'
@@ -175,7 +175,7 @@ export const pages = {
     sections: [
       {
         title: 'Contexto para compreender práticas',
-        body: 'A nova versão mantém essa área como parte do eixo de pensamento do projeto, aproximando história, cultura, clínica e modos de compreender saúde e doença.'
+        body: 'Esta área integra o eixo de pensamento do projeto, aproximando história, cultura, clínica e modos de compreender saúde e doença.'
       }
     ]
   },

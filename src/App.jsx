@@ -68,8 +68,15 @@ function Header() {
       setMobileOpen(false);
       setSearchOpen(false);
     };
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') close();
+    };
     window.addEventListener('hashchange', close);
-    return () => window.removeEventListener('hashchange', close);
+    window.addEventListener('keydown', closeOnEscape);
+    return () => {
+      window.removeEventListener('hashchange', close);
+      window.removeEventListener('keydown', closeOnEscape);
+    };
   }, []);
 
   return (
@@ -173,7 +180,7 @@ function SearchPanel({ onClose }) {
           />
         </div>
         <div className="search-results">
-          <span className="search-results__meta">{query ? results.length + ' resultados' : 'Comece pelo acervo'}</span>
+          <span className="search-results__meta" aria-live="polite">{query ? results.length + ' resultados' : 'Comece pelo acervo'}</span>
           {results.length ? results.map((page) => (
             <a key={page.slug} href={routeFor(page)} onClick={onClose}>
               <span>
@@ -202,6 +209,8 @@ function ArchiveRelic({ compact = false }) {
           alt="Identidade visual de O Mapa da Mente"
           referrerPolicy="no-referrer"
           onError={() => setFailed(true)}
+          decoding="async"
+          fetchPriority={compact ? 'auto' : 'high'}
         />
       ) : (
         <div className="archive-relic__fallback">
@@ -374,6 +383,7 @@ function AboutSection() {
               loading="lazy"
               referrerPolicy="no-referrer"
               onError={() => setImageFailed(true)}
+              decoding="async"
             />
           ) : (
             <div className="portrait-fallback">AS</div>
